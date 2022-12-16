@@ -13,3 +13,4 @@ print("-", fromage * nbConvives / BASE, "gr de fromage")
 print("-", eau * nbConvives / BASE, "dL d'eau")
 print("-", ail * nbConvives / BASE, "gousse(s) d'ail")
 print("-", pain * nbConvives / BASE, "gr de pain")
+

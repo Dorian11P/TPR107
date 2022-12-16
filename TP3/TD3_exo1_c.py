@@ -2,7 +2,7 @@ strict10 = 0
 infsup15 = 0
 sup15 = 0
 nb = 1
-while nb <= 10:
+while nb < 10:
 
 
     print("Nombre à tester :")
@@ -12,8 +12,9 @@ while nb <= 10:
         nb = nb + 1
 
     else:
-        print("Retapez un nombre")
-        x = int(input())
+        while x > 20 or x <0:
+            print("Retapez un nombre")
+            x = int(input())
 
 
 
