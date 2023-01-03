@@ -1,0 +1,55 @@
+def is_valid_date(date_string):
+  # Check if the date is in the correct format
+  if len(date_string) != 8:
+    print("Invalid date format. Please enter the date in the format 'ddmmyyyy'.")
+    return False
+  
+  # Extract the day, month, and year from the date string
+  day = int(date_string[:2])
+  month = int(date_string[2:4])
+  year = int(date_string[4:])
+  
+  # Check if the year is a leap year
+  if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
+    leap_year = True
+  else:
+    leap_year = False
+  
+  # Check if the month is valid
+  if month < 1 or month > 12:
+    print("Invalid month. Please enter a month between 1 and 12.")
+    return False
+  
+  # Check if the day is valid for the given month
+  if month == 2:
+    # February
+    if leap_year:
+      # Leap year
+      if day < 1 or day > 29:
+        print("Invalid day for the month of February in a leap year. Please enter a day between 1 and 29.")
+        return False
+    else:
+      # Non-leap year
+      if day < 1 or day > 28:
+        print("Invalid day for the month of February in a non-leap year. Please enter a day between 1 and 28.")
+        return False
+  elif month in (4, 6, 9, 11):
+    # April, June, September, November
+    if day < 1 or day > 30:
+      print(f"Invalid day for the month of {month}. Please enter a day between 1 and 30.")
+      return False
+  else:
+    # January, March, May, July, August, October, December
+    if day < 1 or day > 31:
+      print(f"Invalid day for the month of {month}. Please enter a day between 1 and 31.")
+      return False
+  
+  # If all checks pass, the date is valid
+  return True
+
+# Test the function with a sample date
+sample_date = "31022199"
+if is_valid_date(sample_date):
+  print("The date is valid.")
+else:
+  print("The date is not valid.")
